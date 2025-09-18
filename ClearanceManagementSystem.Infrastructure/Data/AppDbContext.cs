@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ClearanceManagementSystem.Domain.Entities;
 
-namespace ClearanceManagementSystem.Data
+namespace ClearanceManagementSystem.Infrastructure.Data
 {
     public class AppDbContext : IdentityDbContext<Users>
     {

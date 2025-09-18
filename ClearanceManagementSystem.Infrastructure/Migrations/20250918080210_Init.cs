@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace WebApp.Migrations
+namespace ClearanceManagementSystem.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration

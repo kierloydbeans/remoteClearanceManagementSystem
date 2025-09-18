@@ -41,6 +41,12 @@
                 <span asp-validation-for="Register.Course" class="text-danger"></span>
             </div>
 
+            <div class="mb-3">
+                <label asp-for="Register.ConfirmPassword" class="form-label">Confirm Password</label>
+                <input asp-for="Register.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Register.ConfirmPassword" class="text-danger"></span>
+            </div>
+
             <input type="submit" value="Register" class="btn btn-success w-100 p2" />
 
             <div class="text-center">

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ClearanceManagementSystem.Application.Interfaces;
-using ClearanceManagementSystem.Data;
+using ClearanceManagementSystem.Infrastructure.Data;
 using ClearanceManagementSystem.Domain.Entities;
 using ClearanceManagementSystem.Infrastructure.Services;
 
