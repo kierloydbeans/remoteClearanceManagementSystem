@@ -1,0 +1,62 @@
+﻿@page
+@model WebApp.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="account-container">
+    <div class="account-box">
+        <h2 class="text-center mb-4">Register</h2>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Register.Username" class="form-label">Enter Full Name</label>
+                <input asp-for="Register.Username" class="form-control" />
+                <span asp-validation-for="Register.Username" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.StudentNumber" class="form-label">StudentNumber</label>
+                <input asp-for="Register.StudentNumber" class="form-control" />
+                <span asp-validation-for="Register.StudentNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.Email" class="form-label">Email</label>
+                <input asp-for="Register.Email" class="form-control" />
+                <span asp-validation-for="Register.Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.Password" class="form-label">Password</label>
+                <input asp-for="Register.Password" class="form-control" />
+                <span asp-validation-for="Register.Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.ConfirmPassword" class="form-label">Confirm Password</label>
+                <input asp-for="Register.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Register.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.Course" class="form-label">Course</label>
+                <input asp-for="Register.Course" class="form-control" />
+                <span asp-validation-for="Register.Course" class="text-danger"></span>
+            </div>
+
+            <input type="submit" value="Register" class="btn btn-success w-100 p2" />
+
+            <div class="text-center">
+                <a asp-page="/Index" class="text-decoration-none mt-3">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}
