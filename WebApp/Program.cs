@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using WebApp.Application.Interfaces;
-using WebApp.Data;
-using WebApp.Domain.Entities;
-using WebApp.Infrastructure.Services;
+using ClearanceManagementSystem.Application.Interfaces;
+using ClearanceManagementSystem.Data;
+using ClearanceManagementSystem.Domain.Entities;
+using ClearanceManagementSystem.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebApp.Application.ViewModels
+namespace ClearanceManagementSystem.Application.ViewModels
 {
     public class RegisterResult
     {

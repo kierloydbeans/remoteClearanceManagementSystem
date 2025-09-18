@@ -1,19 +1,20 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ClearanceManagementSystem.Application.Commands;
+using ClearanceManagementSystem.Application.Interfaces;
+using ClearanceManagementSystem.Application.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Application.ViewModels;
-using WebApp.Domain.Entities;
 
-namespace WebApp.Controllers
+namespace ClearanceManagementSystem.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<Users> signInManager;
-        private readonly UserManager<Users> userManager;
+        // The controller now depends on the IUserService interface, not the concrete implementation.
+        private readonly IUserService _userService;
 
-        public AccountController(SignInManager<Users> signInManager, UserManager<Users> userManager)
+        // The controller is only responsible for UI logic and delegates all business logic to the service.
+        public AccountController(IUserService userService)
         {
-            this.signInManager = signInManager;
-            this.userManager = userManager;
+            _userService = userService;
         }
 
         public IActionResult Login()
@@ -26,37 +27,38 @@ namespace WebApp.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterUserCommand model)
         {
             if (ModelState.IsValid)
             {
-                Users users = new Users
+                // Step 1: Map the ViewModel to the Command.
+                // The ViewModel is for the UI, the Command is for the business logic layer.
+                var command = new RegisterUserCommand
                 {
-                    FullName = model.Username, 
+                    Username = model.Username,
                     StudentNumber = model.StudentNumber,
                     Email = model.Email,
                     Course = model.Course,
-                    UserName = model.Email
+                    Password = model.Password
                 };
 
-                var result = await userManager.CreateAsync(users, model.Password);
+                // Step 2: Call the service from the Application layer.
+                var result = await _userService.RegisterAsync(command);
 
                 if (result.Succeeded)
                 {
+                    // Redirect to the login page on success.
                     return RedirectToAction("Login", "Account");
                 }
-                else
+
+                // Add any returned errors to the model state to display to the user.
+                foreach (var error in result.Errors)
                 {
-                    foreach (var error in result.Errors)
-                        ModelState.AddModelError("", error.Description);
+                    ModelState.AddModelError("", error);
                 }
-
-                return View(model);
-
             }
             return View(model);
         }
-
 
         public IActionResult VerifyEmail()
         {
@@ -66,6 +68,5 @@ namespace WebApp.Controllers
         {
             return View();
         }
-
     }
 }

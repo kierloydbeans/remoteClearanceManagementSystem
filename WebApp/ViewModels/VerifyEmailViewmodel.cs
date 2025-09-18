@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace WebApp.ViewModels
+namespace ClearanceManagementSystem.Web.ViewModels
 {
     public class VerifyEmailViewmodel
     {

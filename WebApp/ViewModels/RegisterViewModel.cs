@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.Application.ViewModels
+namespace ClearanceManagementSystem.Web.ViewModels
 {
     public class RegisterViewModel
     {

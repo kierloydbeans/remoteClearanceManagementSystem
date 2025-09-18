@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace WebApp.Domain.Entities
+namespace ClearanceManagementSystem.Domain.Entities
 {
     public class Users: IdentityUser
 

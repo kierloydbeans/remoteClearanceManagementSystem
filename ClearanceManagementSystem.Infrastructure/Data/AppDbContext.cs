@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using WebApp.Domain.Entities;
+using ClearanceManagementSystem.Domain.Entities;
 
-namespace WebApp.Data
+namespace ClearanceManagementSystem.Data
 {
     public class AppDbContext : IdentityDbContext<Users>
     {
